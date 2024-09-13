@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-03-30",
+      "name": "[concat('vmname','/DAExtension')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "autoUpgradeMinorVersion": "true",
+        "publisher": "Microsoft.Azure.Monitoring.DependancyAgent",
+        "type": "DependencyAgentWindows",
+        "typeHandlerVersion": "9.10"
+      }
+    }
+  ],
+  "outputs": {}
+}
